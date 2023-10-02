@@ -35,6 +35,23 @@ export const processor = new EvmBatchProcessor()
         to: ['0x0000000000000000000000000000000000000000'],
     })
 
+    .addLog({
+    	address: ['0x469788fE6E9E9681C6ebF3bF78e7Fd26Fc015446'],
+    })
+
+    .addLog({
+   	address: ['0x12302fE9c02ff50939BaAaaf415fc226C078613C'],
+    })
+
+    .addLog({
+    	address: ['0x76E2cFc1F5Fa8F6a5b3fC4c8F4788F0116861F9B'],
+    })
+
+    .addLog({
+    	address: ['0xa6B71E26C5e0845f74c812102Ca7114b6a896AB2',]
+    });
+
+
 export type Fields = EvmBatchProcessorFields<typeof processor>
 export type Block = BlockHeader<Fields>
 export type Log = _Log<Fields>
