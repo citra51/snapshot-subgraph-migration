@@ -7,7 +7,7 @@ import {
     Log as _Log,
     Transaction as _Transaction,
 } from '@subsquid/evm-processor'
-
+import * as Delegation from "./abi/DelegateRegistry";
 export const processor = new EvmBatchProcessor()
     .setDataSource({
         // Change the Archive endpoints for run the squid
@@ -31,12 +31,10 @@ export const processor = new EvmBatchProcessor()
     .setBlockRange({
         from: 6_000_000,
     })
-    .addTransaction({
-        to: ['0x0000000000000000000000000000000000000000'],
-    })
 
     .addLog({
     	address: ['0x469788fE6E9E9681C6ebF3bF78e7Fd26Fc015446'],
+        topic0: [Delegation.events.SetDelegate.topic, Delegation.events.ClearDelegate.topic]
     })
 
     .addLog({
@@ -48,8 +46,8 @@ export const processor = new EvmBatchProcessor()
     })
 
     .addLog({
-    	address: ['0xa6B71E26C5e0845f74c812102Ca7114b6a896AB2',]
-    });
+    	address: ['0xa6B71E26C5e0845f74c812102Ca7114b6a896AB2'],
+    })
 
 
 export type Fields = EvmBatchProcessorFields<typeof processor>
