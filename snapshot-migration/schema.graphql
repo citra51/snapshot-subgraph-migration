@@ -1,7 +1,0 @@
-type Delegation @entity {
-  id: ID!
-  delegator: Bytes!
-  space: String!
-  delegate: Bytes!
-  timestamp: Int!
-}
